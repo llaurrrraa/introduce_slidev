@@ -25,13 +25,11 @@ mdc: true
 專為開發者打造的簡報工具<br/>
 ( presentation by Laura )
 
-
 <div class="abs-br m-6 text-xl">
-  <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
+  <a href="https://github.com/llaurrrraa/introduce_slidev" target="_blank" class="slidev-icon-btn">
     <carbon:logo-github />
   </a>
 </div>
-
 
 <style>
 
@@ -45,18 +43,17 @@ h1 {
   color: #fff !important;
 }
 .light h1 {
-  color:rgb(36, 36, 36);
+  color:rgb(0, 0, 0);
 }
-p {
-  color:rgb(82, 80, 85);
-  font-weight: bold;
-  letter-spacing: 0.85px;
-}
-.dark p {
-  color:rgb(255, 255, 255);
-}
+
 .slidev-layout h1 + p {
   opacity: 0.75;
+}
+.slidev-layout a.slidev-icon-btn:hover {
+  color: #000;
+}
+.slidev-layout a:hover {
+  padding: 0.5rem;
 }
 </style>
 
@@ -70,7 +67,7 @@ transition: fade-out
 
 # What is Slidev?
 
-幫助開發者使用熟悉的技術，使簡報更有趣、提供極強的彈性和互動性。
+▎　幫助開發者使用熟悉的技術，使簡報更有趣、提供極強的彈性和互動性。
 
 - 📝 **基於 Markdown** - 先專心寫內容，也可以使用 Markdown 編排，樣式之後再調整就好！
 - 🎨 **Themable** - 利用 npm 套件重複使用主題
@@ -115,22 +112,20 @@ Here is another comment.
 
 ---
 transition: slide-up
-level: 2
 ---
 
 # 導覽列 Navigation
 
-在播放模式下，導覽列位於頁面左下角。
+▎　在播放模式下，導覽列位於頁面左下角。
 
-## Navigation Actions
 
-|                        |                 |                    |
-| ---------------------- | --------------- |--------------------|
-| <kbd>f</kbd>           | <mdi-arrow-expand /><mdi-arrow-collapse />   | 切換為全螢幕 |
+| Keyboard Shortcut      | Button in Navigation Bar            | Description   |
+| ---------------------- | ----------------------------------- |---------------|
+| <kbd>f</kbd>           | <mdi-arrow-expand /><mdi-arrow-collapse />                       | 切換為全螢幕   |
 | <kbd>d</kbd>           | <svg viewBox="0 0 32 32" width="1.2em" height="1.2em" class="inline-icon-btn" style="display: inline-block;"><path fill="currentColor" d="M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6M5.394 6.813L6.81 5.399l3.505 3.506L8.9 10.319zM2 15.005h5v2H2zm3.394 10.193L8.9 21.692l1.414 1.414l-3.505 3.506zM15 25.005h2v5h-2zm6.687-1.9l1.414-1.414l3.506 3.506l-1.414 1.414zm3.313-8.1h5v2h-5zm-3.313-6.101l3.506-3.506l1.414 1.414l-3.506 3.506zM15 2.005h2v5h-2z"></path></svg><svg style="display:inline-block;" viewBox="0 0 32 32" width="1.2em" height="1.2em" class="inline-icon-btn"><path fill="currentColor" d="M13.503 5.414a15.076 15.076 0 0 0 11.593 18.194a11.1 11.1 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1 1 0 0 0-.175.016a13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.07 13.07 0 0 0 10.703-5.555a1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38A1.015 1.015 0 0 0 14.98 3"></path></svg> | 切換深色模式 |
-| -        |  <svg viewBox="0 0 32 32" width="1.2em" height="1.2em" class="inline-icon-btn" style="display: inline-block;"><path fill="currentColor" d="M16 8a5 5 0 1 0 5 5a5 5 0 0 0-5-5m0 8a3 3 0 1 1 3-3a3.003 3.003 0 0 1-3 3"></path><path fill="currentColor" d="M16 2a14 14 0 1 0 14 14A14.016 14.016 0 0 0 16 2m-6 24.377V25a3.003 3.003 0 0 1 3-3h6a3.003 3.003 0 0 1 3 3v1.377a11.9 11.9 0 0 1-12 0m13.993-1.451A5 5 0 0 0 19 20h-6a5 5 0 0 0-4.992 4.926a12 12 0 1 1 15.985 0"></path></svg><svg viewBox="0 0 32 32" width="1.2em" height="1.2em" class="inline-icon-btn" style="display: inline-block;"><path fill="currentColor" d="M21 26H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h17a2 2 0 0 1 2 2v4.06l5.42-3.87A1 1 0 0 1 30 9v14a1 1 0 0 1-1.58.81L23 19.94V24a2 2 0 0 1-2 2M4 8v16h17v-6a1 1 0 0 1 1.58-.81L28 21.06V10.94l-5.42 3.87A1 1 0 0 1 21 14V8Z"></path></svg>         | 切換攝影機鏡頭、開始錄影 |
-| -        | <svg viewBox="0 0 32 32" width="1.2em" height="1.2em" class="inline-icon-btn" style="display: inline-block;"><path fill="currentColor" d="M29.415 19L27.7 17.285A3 3 0 0 0 28 16a3 3 0 1 0-3 3a3 3 0 0 0 1.286-.3L28 20.414V28h-6v-3a7.01 7.01 0 0 0-7-7H9a7.01 7.01 0 0 0-7 7v5h28v-9.586A2 2 0 0 0 29.415 19M4 25a5.006 5.006 0 0 1 5-5h6a5.006 5.006 0 0 1 5 5v3H4Z"></path><path fill="currentColor" d="M12 4a5 5 0 1 1-5 5a5 5 0 0 1 5-5m0-2a7 7 0 1 0 7 7a7 7 0 0 0-7-7"></path></svg> |  進入簡報模式  |
-| -        | <svg viewBox="0 0 32 32" width="1.2em" height="1.2em" class="inline-icon-btn" style="display: inline-block;"><path d="M29.537 13.76l-3.297-3.297a1.586 1.586 0 0 0-2.24 0L10 24.467V30h5.533l14.004-14a1.586 1.586 0 0 0 0-2.24zM14.704 28H12v-2.704l9.44-9.441l2.705 2.704zM25.56 17.145l-2.704-2.704l2.267-2.267l2.704 2.704z" fill="currentColor"></path><path d="M11 17h2v-7h3V8H8v2h3v7z" fill="currentColor"></path><path d="M8 20H4V4h16v4h2V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4z" fill="currentColor"></path></svg> |  進入編輯器  |
+| -                      |  <svg viewBox="0 0 32 32" width="1.2em" height="1.2em" class="inline-icon-btn" style="display: inline-block;"><path fill="currentColor" d="M16 8a5 5 0 1 0 5 5a5 5 0 0 0-5-5m0 8a3 3 0 1 1 3-3a3.003 3.003 0 0 1-3 3"></path><path fill="currentColor" d="M16 2a14 14 0 1 0 14 14A14.016 14.016 0 0 0 16 2m-6 24.377V25a3.003 3.003 0 0 1 3-3h6a3.003 3.003 0 0 1 3 3v1.377a11.9 11.9 0 0 1-12 0m13.993-1.451A5 5 0 0 0 19 20h-6a5 5 0 0 0-4.992 4.926a12 12 0 1 1 15.985 0"></path></svg><svg viewBox="0 0 32 32" width="1.2em" height="1.2em" class="inline-icon-btn" style="display: inline-block;"><path fill="currentColor" d="M21 26H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h17a2 2 0 0 1 2 2v4.06l5.42-3.87A1 1 0 0 1 30 9v14a1 1 0 0 1-1.58.81L23 19.94V24a2 2 0 0 1-2 2M4 8v16h17v-6a1 1 0 0 1 1.58-.81L28 21.06V10.94l-5.42 3.87A1 1 0 0 1 21 14V8Z"></path></svg>         | 切換攝影機鏡頭、開始錄影 |
+| -                      | <svg viewBox="0 0 32 32" width="1.2em" height="1.2em" class="inline-icon-btn" style="display: inline-block;"><path fill="currentColor" d="M29.415 19L27.7 17.285A3 3 0 0 0 28 16a3 3 0 1 0-3 3a3 3 0 0 0 1.286-.3L28 20.414V28h-6v-3a7.01 7.01 0 0 0-7-7H9a7.01 7.01 0 0 0-7 7v5h28v-9.586A2 2 0 0 0 29.415 19M4 25a5.006 5.006 0 0 1 5-5h6a5.006 5.006 0 0 1 5 5v3H4Z"></path><path fill="currentColor" d="M12 4a5 5 0 1 1-5 5a5 5 0 0 1 5-5m0-2a7 7 0 1 0 7 7a7 7 0 0 0-7-7"></path></svg> |  進入簡報模式  |
+| -                      | <svg viewBox="0 0 32 32" width="1.2em" height="1.2em" class="inline-icon-btn" style="display: inline-block;"><path d="M29.537 13.76l-3.297-3.297a1.586 1.586 0 0 0-2.24 0L10 24.467V30h5.533l14.004-14a1.586 1.586 0 0 0 0-2.24zM14.704 28H12v-2.704l9.44-9.441l2.705 2.704zM25.56 17.145l-2.704-2.704l2.267-2.267l2.704 2.704z" fill="currentColor"></path><path d="M11 17h2v-7h3V8H8v2h3v7z" fill="currentColor"></path><path d="M8 20H4V4h16v4h2V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4z" fill="currentColor"></path></svg> |  進入編輯器  |
 
 
 <style>
@@ -143,10 +138,6 @@ level: 2
 .dark .slidev-icon, .dark svg {
   border: 0.85px solid rgba(255,255,255, 0.25);
 }
-td {
-  font-size: 1rem;
-  letter-spacing: 0.65px;
-}
 </style>
 
 ---
@@ -154,28 +145,33 @@ layout: two-cols
 layoutClass: gap-16
 ---
 
-# Table of contents
+# 目錄 Table of contents
 
-You can use the `Toc` component to generate a table of contents for your slides:
+▎　使用 Toc 元件來自動生成目錄
 
 ```html
 <Toc minDepth="1" maxDepth="1" />
 ```
 
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
+標題會根據投影片內容自動產生，或者你也可以在前言裡用 `title` 和 `level` 自行設定。
+
+Read more about [Toc](https://sli.dev/builtin/components#toc)
 
 ::right::
 
 <Toc text-sm minDepth="1" maxDepth="2" />
 
----
-layout: image-right
-image: https://cover.sli.dev
+<style>
+a div p {
+  font-size: 1.25rem !important;
+}
+</style>
+
 ---
 
-# Code
+# 程式碼 Code
 
-Use code snippets and get the highlighting directly, and even types hover!
+▎　顯示片段程式碼並 Highlight 重點，也可以提示型別
 
 ```ts {all|5|7|7-8|10|all} twoslash
 // TwoSlash enables TypeScript hover information
@@ -300,7 +296,7 @@ const author = {
 
 # Components
 
-<div grid="~ cols-3 gap-4">
+<div grid="~ cols-2 gap-4">
   <div>
 
   You can use Vue components directly inside your slides.
@@ -325,12 +321,6 @@ const author = {
 
   <Tweet id="1390115482657726468" scale="0.65" />
 
-  </div>
-  <div>
-    <LightOrDark>
-      <template #dark>Dark mode is on</template>
-      <template #light>Light mode is on</template>
-    </LightOrDark>
   </div>
 </div>
 
@@ -522,13 +512,14 @@ You can create diagrams / graphs from textual descriptions, directly in your Mar
 
 <div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
 
+<!-- alt: 無法顯示圖表時提供描述  -->
 ```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
 sequenceDiagram
     Alice->John: Hello John, how are you?
     Note over Alice,John: A typical interaction
 ```
 
-```mermaid {theme: 'neutral', scale: 0.8}
+```mermaid { scale: 0.8}
 graph TD
 B[Text] --> C{Decision}
 C -->|One| D[Result 1]

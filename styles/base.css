@@ -17,11 +17,11 @@
 
 .slidev-layout {
   background-image: 
-    radial-gradient(closest-side, rgba(235, 105, 78, 1), rgba(235, 105, 78, 0)), 
+    radial-gradient(closest-side, rgb(248, 159, 141), rgba(235, 105, 78, 0)), 
     radial-gradient(closest-side, rgb(255, 182, 231), rgba(243, 11, 164, 0)), 
-    radial-gradient(closest-side, rgba(254, 234, 131, 1), rgba(254, 234, 131, 0)), 
-    radial-gradient(closest-side, rgba(170, 142, 245, 1), rgba(170, 142, 245, 0)), 
-    radial-gradient(closest-side, rgba(248, 192, 147, 1), rgba(248, 192, 147, 0));
+    radial-gradient(closest-side, rgb(253, 241, 180), rgba(254, 234, 131, 0)), 
+    radial-gradient(closest-side, rgb(190, 170, 243), rgba(170, 142, 245, 0)), 
+    radial-gradient(closest-side, rgb(255, 237, 223), rgba(248, 192, 147, 0));
   background-size:
     130vmax 130vmax,
     80vmax 80vmax,
@@ -122,4 +122,41 @@ kbd {
   border-color: rgb(255 255 255 / 40%) !important;
   font-weight: normal !important;
   background-color: rgb(255 255 255 / 30%) !important;
+}
+
+p {
+  color:rgb(82, 80, 85);
+  letter-spacing: 0.05em
+}
+
+.light p {
+  color:rgb(112, 4, 26);
+  letter-spacing: 0.05em
+}
+
+.light ol li a p {
+  color: #000 !important;
+}
+
+ol li {
+  margin: 2.5px 0 ;
+}
+
+.dark ol li a p:hover {
+  color: #000;
+}
+
+.dark p {
+  color:rgb(255, 255, 255);
+}
+
+th {
+  background-color: rgba(255,255,255, 0.25);
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+}
+td {
+  font-size: 1rem;
+  letter-spacing: 0.65px;
 }
