@@ -72,8 +72,8 @@ transition: fade-out
 - 📝 **基於 Markdown** - 先專心寫內容，也可以使用 Markdown 編排，樣式之後再調整就好！
 - 🎨 **Themable** - 利用 npm 套件重複使用主題
 - 👩‍💻 **Developer Friendly** - 提示程式碼、即時寫 code 
-- 🎮 **Interactive** - 撰寫 Vue 元件並在簡報期間與其互動，以更有趣直觀的方式簡報
-- 🎥 **Recording** - 內置錄影和攝像頭
+- 🎮 **Interactive** - 因為核心是 Vue, 任何 Vue 的套件都能使用
+- 🎥 **Recording** - 支援錄影和內嵌講者鏡頭
 - 📤 **Portable** - 支援匯出為 PDF、PPTX 和圖片格式，也能編譯成靜態網頁
 - 🛠 **Hackable** - 作為一個基於網頁的簡報平台，因此能實現任何在網頁應用程式中的功能。例如，WebGL、API 請求、iframe 等。
 <br>
@@ -171,7 +171,7 @@ a div p {
 
 # 程式碼 Code
 
-▎　顯示片段程式碼並 Highlight 重點，也可以提示型別
+▎　顯示片段程式碼並 Highlight 重點，也可以利用 twoslash 顯示 ts 型別
 
 ```ts {all|5|7|7-8|10|all} twoslash
 // TwoSlash enables TypeScript hover information
@@ -186,9 +186,9 @@ const doubled = computed(() => count.value * 2)
 doubled.value = 2
 ```
 
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="334" color="#953" width="2" arrowSize="1" />
+<arrow v-click="[4, 5]" x1="300" y1="290" x2="210" y2="330" color="#953" width="2" arrowSize="1" />
 
-<!-- This allow you to embed external code blocks -->
+<!-- 也可以引用外部的程式碼片段 -->
 <<< @/snippets/external.ts#snippet
 
 <!-- Footer -->
@@ -224,9 +224,9 @@ level: 2
 
 # Shiki Magic Move
 
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
+▎　[shiki-magic-move](https://shiki-magic-move.netlify.app/) 套件, 可以呈現不同片段程式碼的過度動畫。
 
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
+在片段程式碼最外層加上 <code>````md magic-move</code> ( four backticks )
 
 ````md magic-move {lines: true}
 ```ts {*|2|*}
@@ -241,7 +241,7 @@ const author = reactive({
 })
 ```
 
-```ts {*|1-2|3-4|3-4,8}
+```ts {*|2-4|*}
 // step 2
 export default {
   data() {
@@ -274,34 +274,26 @@ export default {
   })
 }
 ```
-
-Non-code blocks are ignored.
-
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-}
-</script>
-```
 ````
+
+<!--
+現在的例子為在 vue 有不同方式可以定義資料變數。
+
+[click] 第一種是 vue3 composition api 的寫法，讓變數變成可響應的物件。
+
+[click:3] 第二種是 options api 的 data function，data 函式會回傳一個物件。
+
+[click:2] 也可以改成箭頭函式。
+
+-->
 
 ---
 
 # Components
-
-<div grid="~ cols-2 gap-4">
+▎　custom component, built-in components
+<div grid="~ cols-3 gap-4">
   <div>
 
-  You can use Vue components directly inside your slides.
-
-  We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
 
   ```html
   <Counter :count="10" />
@@ -322,342 +314,269 @@ const author = {
   <Tweet id="1390115482657726468" scale="0.65" />
 
   </div>
+
+  <div>
+
+  ```html
+  <Youtube id="g9U4xbwLkVA"/>
+  ```
+
+  <Youtube id="g9U4xbwLkVA?start=60" />
+  </div>
 </div>
+
+<style>
+.youtube {
+  margin-top: 1rem;
+  width: 98%;
+}
+</style>
 
 <!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
+也可以包 component，有一些內建的 components，像是推特或是 youtube 可以使用。
 
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
+其他還有一些動畫的 component，有興趣的可以玩玩看。
 -->
 
----
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
-check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
 
 ---
-
-# Clicks Animations
-
-You can add `v-click` to elements to add a click animation.
-
-<div v-click>
-
-This shows up when you click the slide:
-
-```html
-<div v-click>This shows up when you click the slide.</div>
-```
-
-</div>
-
-<br>
-
-<v-click>
-
-The <span v-mark.red="3"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="4">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
-
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
-
-</v-click>
-
-<div mt-20 v-click>
-
-[Learn more](https://sli.dev/guide/animations#click-animation)
-
-</div>
-
----
-
-# Motions
-
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }"
-  :click-3="{ x: 80 }"
-  :leave="{ x: 1000 }"
->
-  Slidev
-</div>
-```
-
-<div class="w-60 relative">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 30, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn more](https://sli.dev/guide/animations.html#motion)
-
-</div>
-
----
-
-# LaTeX
-
-LaTeX is supported out-of-box. Powered by [KaTeX](https://katex.org/).
-
-<div h-3 />
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$ {1|3|all}
-\begin{aligned}
-\nabla \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
-\nabla \cdot \vec{B} &= 0 \\
-\nabla \times \vec{E} &= -\frac{\partial\vec{B}}{\partial t} \\
-\nabla \times \vec{B} &= \mu_0\vec{J} + \mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}
-\end{aligned}
-$$
-
-[Learn more](https://sli.dev/features/latex)
-
+transition: slide-up
 ---
 
 # Diagrams
 
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
+▎　Mermaid 套件可以用 Markdown 創建圖表、流程圖、序列圖..等。
 
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
+<div class="grid grid-cols-4 gap-5 pt-15 -mb-6">
 
-<!-- alt: 無法顯示圖表時提供描述  -->
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
+<!-- alt: 無法顯示圖表時的描述  -->
+```mermaid {scale: 1, alt: 'A simple flowchart'}
+flowchart LR
+    A[Start] -->|Link text| B(Process)
+    B --> C{Decision}
+    C -->|Yes| D[Result one]
+    C -->|No| E[Result two]
 ```
 
-```mermaid { scale: 0.8}
-graph TD
+
+</div>
+<div class="link">
+
+Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid)
+
+</div>
+
+<style>
+.slidev-page-8 {
+  position: relative;
+}
+.link {
+  position: absolute;
+  bottom: 1rem;
+}
+</style>
+
+---
+transition: slide-up
+---
+
+## Flowchart
+
+<div class="flex mt-10">
+```mermaid { scale: 1 }
+flowchart TD
 B[Text] --> C{Decision}
 C -->|One| D[Result 1]
 C -->|Two| E[Result 2]
 ```
 
-```mermaid
+  <div class="pl-15">
+
+  - **TB** - Top to bottom
+  - **TD** - Top to down ( same as top to bottom )
+  - **BT** - Bottom to top
+  - **RL** - Right to left
+  - **LR** - Left to right
+
+  </div>
+
+</div>
+
+<style>
+.dark strong {
+  background-color: #000;
+}
+strong {
+  padding: 0 0.5rem;
+  background-color: #fff;
+  border-radius: 5px;
+}
+</style>
+
+---
+
+## Mindmap
+<div>
+```mermaid { scale: 1 }
 mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
+  root((Frontend))
+    HTML
+      (Semantic HTML)
+      (Forms and Validations)
+      (Accessibility)
+    CSS
+      (Basics)
+      (Making Layouts)
+      (Responsive Design)
+    JavaScript
+      (Basics)
+      (DOM Manipulation)
+      (Fetch API / Ajax)
+    Framework
+      (React)
+      (Vue.js)
+      (Angular)
+      (Svelte)
 ```
 
 </div>
 
-Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
-
----
-foo: bar
-dragPos:
-  square: 691,32,167,_,-16
+--- 
+transition: slide-up
 ---
 
-# Draggable Elements
-
-Double-click on the draggable elements to edit their positions.
-
-<br>
-
-###### Directive Usage
-
-```md
-<img v-drag="'square'" src="https://sli.dev/logo.png">
+# 實際應用
+##### D3 - 顯示游標 (1)
+ 
+```js
+  function coordsPixels(selector) {
+    const txt = d3.select(selector).append('text');
+    const svg = d3.select(selector).attr('cursor', 'crosshair')
+      .on('mousemove', function(event) {
+        const pt = d3.pointer(event, svg.node());
+        txt.attr('x', 18 + pt[0]).attr('y', 6 + pt[1])
+          .text('' + pt[0] + ',' + pt[1])
+      })
+  }
 ```
+<svg width="100%" height="200" id="svgCanvas"></svg>
 
-<br>
+<script setup>
+  import * as d3 from 'd3';
+  import { onMounted } from 'vue';
+  
+  function coordsPixels(selector) {
+    const txt = d3.select(selector).append('text');
+    const svg = d3.select(selector).style('cursor', 'crosshair')
+      .on('mousemove', function(event) {
+        const pt = d3.pointer(event, svg.node());
+        txt.attr('x', 18 + pt[0]).attr('y', 6 + pt[1])
+          .text(''+ pt[0] + ',' + pt[1])
+      })
+  }
 
-###### Component Usage
+  onMounted(() => {
+    coordsPixels('#svgCanvas')
+  });
 
-```md
-<v-drag text-3xl>
-  <div class="i-carbon:arrow-up" />
-  Use the `v-drag` component to have a draggable container!
-</v-drag>
-```
+</script> 
 
-<v-drag pos="663,206,261,_,-15">
-  <div text-center text-3xl border border-main rounded>
-    Double-click me!
-  </div>
-</v-drag>
+<style>
+h1 {
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  font-size: 1.75rem;
+}
+svg {
+  border: 1px solid #fff;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+</style> 
 
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-
-###### Draggable Arrow
-
-```md
-<v-drag-arrow two-way />
-```
-
-<v-drag-arrow pos="67,452,253,46" two-way op70 />
-
+--- 
+transition: slide-up
 ---
-src: ./pages/imported-slides.md
-hide: false
----
 
----
+##### D3 - 同步 (2)
+<div style="display: flex; align-items: center; justify-content: center">
+  <svg id="brush1" width="380" height="300" style="background:white"></svg>
+  <svg id="brush2" width="380" height="300" style="background:white"></svg>
+</div>
 
-# Monaco Editor
+<script setup>
+import * as d3 from 'd3';
+import { onMounted } from 'vue';
 
-Slidev provides built-in Monaco Editor support.
+function makeBrush() {
+  d3.csv('/dense.csv').then(function(data){
+    const svg1 = d3.select('#brush1');
+    const svg2 = d3.select('#brush2');
+    const sc1 = d3.scaleLinear().domain([0, 10, 50])
+          .range(['lime', 'yellow', 'red']);
+    const sc2 = d3.scaleLinear().domain([0, 10, 50])
+          .range(['lime', 'yellow', 'blue']);
+    const cs1 = drawCircles(svg1, data, d=> +d['A'], d=> +d['B'], sc1);
+    const cs2 = drawCircles(svg2, data, d=> +d['A'], d=> +d['B'], sc2);
 
-Add `{monaco}` to the code block to turn it into an editor:
+    svg1.call(installHandlers2, data, cs1, cs2, sc1, sc2);
+  })
+}
 
-```ts {monaco}
-import { ref } from 'vue'
-import { emptyArray } from './external'
+function drawCircles(svg, data, accX, accY, sc) {
+  const color = sc(Infinity);
+  return svg.selectAll('circle').data(data).enter()
+          .append('circle')
+          .attr('r', 5).attr('cx', accX).attr('cy', accY)
+          .attr('fill', color).attr('fill-opacity', 0.4);
+}
 
-const arr = ref(emptyArray(10))
-```
+function installHandlers2( svg, data, cs1, cs2, sc1, sc2 ) {
+  const cursor = svg.append( "circle" ).attr( "r", 50 )          
+    .attr( "fill", "none" ).attr( "stroke", "black" )
+    .attr( "stroke-width", 10 ).attr( "stroke-opacity", 0.1 )
+    .attr( "visibility", "hidden" );                         
+  
+  const hotzone = svg.append( "rect" ).attr( "cursor", "none" )  
+    .attr( "x", 50 ).attr( "y", 50 )
+    .attr( "width", 200 ).attr( "height", 200 )
+    .attr( "visibility", "hidden" )                       
+    .attr( "pointer-events", "all" )              
 
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
+    .on( "mouseenter", function() {                      
+        cursor.attr( "visibility", "visible" ); } )                
+    
+    .on( "mousemove", function(event) {                      
+        const pt = d3.pointer( event,svg.node() );
+        cursor.attr( "cx", pt[0] ).attr( "cy", pt[1] );
 
-```ts {monaco-run}
-import { version } from 'vue'
-import { emptyArray, sayHello } from './external'
+        cs1.attr( "fill", function( d, i ) {
+            const dx = pt[0] - d3.select( this ).attr( "cx" );
+            const dy = pt[1] - d3.select( this ).attr( "cy" );
+            const r = Math.hypot( dx, dy );
 
-sayHello()
-console.log(`vue ${version}`)
-console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-2)!], [1, 1]))
-```
+            data[i]["r"] = r;
+            return sc1(r); } );
+        
+        cs2.attr( "fill", (d,i) => sc2( data[i]["r"] ) ); } )
+
+    .on( "mouseleave", function() {                                 
+        cursor.attr( "visibility", "hidden" );
+        cs1.attr( "fill", sc1(Infinity) );
+        cs2.attr( "fill", sc2(Infinity) ); } )
+}
+
+makeBrush()
+
+</script> 
+
+<style>
+svg {
+  margin: 2rem 1rem;
+  border-radius: 10px;
+}
+</style>
+
 
 ---
 layout: center

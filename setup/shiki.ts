@@ -3,7 +3,7 @@ import { defineShikiSetup } from '@slidev/types'
 export default defineShikiSetup(() => {
   return {
     themes: {
-      dark: 'min-dark',
+      dark: 'github-dark-default',
       light: 'github-light',
     },
     transformers: [

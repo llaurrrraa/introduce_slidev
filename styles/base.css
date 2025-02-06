@@ -1,25 +1,25 @@
 
 .dark .slidev-slide-content {
-  background-color: #2f00ff !important;
+  background-color: #1100ff !important;
 }
 .light .slidev-slide-content {
-  background-color: #fff5f5 !important;
+  background-color: #ef8585 !important;
   
 }
 .dark .slidev-layout {
   background-image: 
-    radial-gradient(closest-side, rgb(255, 143, 156), rgba(235, 105, 78, 0)), 
-    radial-gradient(closest-side, rgb(11, 48, 76), rgba(243, 11, 164, 0)), 
+    radial-gradient(closest-side, rgb(255, 120, 135), rgba(235, 105, 78, 0)), 
+    radial-gradient(closest-side, rgb(8, 55, 209), rgba(243, 11, 164, 0)), 
     radial-gradient(closest-side, rgb(144, 249, 209), rgba(254, 234, 131, 0)), 
     radial-gradient(closest-side, rgb(153, 119, 247), rgba(170, 142, 245, 0)), 
-    radial-gradient(closest-side, rgb(29, 203, 237), rgba(248, 192, 147, 0));
+    radial-gradient(closest-side, rgb(55, 222, 255), rgba(248, 192, 147, 0));
 }
 
 .slidev-layout {
   background-image: 
-    radial-gradient(closest-side, rgb(248, 159, 141), rgba(235, 105, 78, 0)), 
-    radial-gradient(closest-side, rgb(255, 182, 231), rgba(243, 11, 164, 0)), 
-    radial-gradient(closest-side, rgb(253, 241, 180), rgba(254, 234, 131, 0)), 
+    radial-gradient(closest-side, rgb(255, 255, 255), rgba(235, 105, 78, 0)), 
+    radial-gradient(closest-side, rgb(211, 225, 238), rgba(243, 11, 164, 0)), 
+    radial-gradient(closest-side, rgb(236, 222, 153), rgba(254, 234, 131, 0)), 
     radial-gradient(closest-side, rgb(190, 170, 243), rgba(170, 142, 245, 0)), 
     radial-gradient(closest-side, rgb(255, 237, 223), rgba(248, 192, 147, 0));
   background-size:
@@ -130,7 +130,7 @@ p {
 }
 
 .light p {
-  color:rgb(112, 4, 26);
+  color:rgb(61, 74, 97);
   letter-spacing: 0.05em
 }
 
@@ -159,4 +159,15 @@ th {
 td {
   font-size: 1rem;
   letter-spacing: 0.65px;
+}
+
+.theme-light .mermaid {
+  --color-red: #ff7777;
+  --color-orange: #ffbb99;
+  --color-yellow: #ffeeaa;
+  --color-green: #bbffbb;
+  --color-cyan: #bbffee;
+  --color-blue: #aaccff;
+  --color-purple: #ddbbff;
+  --color-pink: #ffcccc; 
 }
