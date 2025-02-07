@@ -1,8 +1,6 @@
 ---
 # You can also start simply with 'default'
 theme: default
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
 # background: https://cover.sli.dev
 # some information about your slides (markdown enabled)
 title: Slidev
@@ -22,7 +20,7 @@ mdc: true
 
 # Welcome to Slidev !
 
-專為開發者打造的簡報工具<br/>
+為開發者打造的簡報工具<br/>
 ( presentation by Laura )
 
 <div class="abs-br m-6 text-xl">
@@ -58,7 +56,7 @@ h1 {
 </style>
 
 <!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
+嗨~ 我是 Laura，今天想要分享一個對工程師友善的簡報工具，在 webConf 上聽 anthony 講 ESlint。
 -->
 
 ---
@@ -71,7 +69,7 @@ transition: fade-out
 
 - 📝 **基於 Markdown** - 先專心寫內容，也可以使用 Markdown 編排，樣式之後再調整就好！
 - 🎨 **Themable** - 利用 npm 套件重複使用主題
-- 👩‍💻 **Developer Friendly** - 提示程式碼、即時寫 code 
+- 👩‍💻 **Developer Friendly** - 程式碼片段 highlight、即時寫 code 
 - 🎮 **Interactive** - 因為核心是 Vue, 任何 Vue 的套件都能使用
 - 🎥 **Recording** - 支援錄影和內嵌講者鏡頭
 - 📤 **Portable** - 支援匯出為 PDF、PPTX 和圖片格式，也能編譯成靜態網頁
@@ -80,11 +78,6 @@ transition: fade-out
 <br>
 
 Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
--->
 
 <style>
 li {
@@ -103,12 +96,18 @@ strong {
   padding: 0 0.5rem !important;
   letter-spacing: 0.5px;
   background-color: #fff;
+  border-radius: 3px;
 }
 </style>
 
 <!--
-Here is another comment.
+首先他可以用 markdown 語法就做完 ppt，直接用 css 調整 layout
+
+再來是社群裡有不少模板可以套用，只要 npm 就可以使用
+
+可以指定一行或多行程式碼片段的 highlight
 -->
+
 
 ---
 transition: slide-up
@@ -140,6 +139,10 @@ transition: slide-up
 }
 </style>
 
+<!--
+講稿內容 blah blah ..
+-->
+
 ---
 layout: two-cols
 layoutClass: gap-16
@@ -167,13 +170,15 @@ a div p {
 }
 </style>
 
+<!-- 用 TOC component 生成目錄 -->
+
 ---
 
 # 程式碼 Code
 
-▎　顯示片段程式碼並 Highlight 重點，也可以利用 twoslash 顯示 ts 型別
+▎　顯示片段程式碼及 highlight，也可以用 twoslash 顯示 ts 型別
 
-```ts {all|5|7|7-8|10|all} twoslash
+```ts {all|5|7|7-8|10|all}{lines:true} twoslash
 // TwoSlash enables TypeScript hover information
 // and errors in markdown code blocks
 // More at https://shiki.style/packages/twoslash
@@ -195,7 +200,7 @@ doubled.value = 2
 
 [Learn more](https://sli.dev/features/line-highlighting)
 
-<!-- Inline style -->
+
 <style>
 .footnotes-sep {
   @apply mt-5 opacity-10;
@@ -347,16 +352,18 @@ transition: slide-up
 
 ▎　Mermaid 套件可以用 Markdown 創建圖表、流程圖、序列圖..等。
 
-<div class="grid grid-cols-4 gap-5 pt-15 -mb-6">
+<div class="grid grid-cols-3 gap-5 pt-2 -mb-6">
 
 <!-- alt: 無法顯示圖表時的描述  -->
-```mermaid {scale: 1, alt: 'A simple flowchart'}
-flowchart LR
-    A[Start] -->|Link text| B(Process)
-    B --> C{Decision}
-    C -->|Yes| D[Result one]
-    C -->|No| E[Result two]
+```mermaid  {scale: 0.7, alt: 'A simple chart'}
+xychart-beta
+    title "Sales Revenue"
+    x-axis [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec]
+    y-axis "Revenue (in $)" 4000 --> 11000
+    bar [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+    line [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
 ```
+
 
 
 </div>
@@ -376,6 +383,10 @@ Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid)
 }
 </style>
 
+<!--
+圖表種類比較少，目前有圓餅圖、長條、橫條及象線圖
+-->
+
 ---
 transition: slide-up
 ---
@@ -384,7 +395,7 @@ transition: slide-up
 
 <div class="flex mt-10">
 ```mermaid { scale: 1 }
-flowchart TD
+flowchart TB
 B[Text] --> C{Decision}
 C -->|One| D[Result 1]
 C -->|Two| E[Result 2]
@@ -446,9 +457,10 @@ transition: slide-up
 ---
 
 # 實際應用
+
 ##### D3 - 顯示游標 (1)
  
-```js
+```js{all|2|6|all}
   function coordsPixels(selector) {
     const txt = d3.select(selector).append('text');
     const svg = d3.select(selector).attr('cursor', 'crosshair')
@@ -496,9 +508,10 @@ svg {
 
 --- 
 transition: slide-up
+level: 2
 ---
 
-##### D3 - 同步 (2)
+##### D3 - 同步
 <div style="display: flex; align-items: center; justify-content: center">
   <svg id="brush1" width="380" height="300" style="background:white"></svg>
   <svg id="brush2" width="380" height="300" style="background:white"></svg>
